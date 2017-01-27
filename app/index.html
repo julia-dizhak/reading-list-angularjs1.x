@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css"> -->
+  <!-- <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css"> -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script> -->
+</head>
+<body ng-app="readingList">
+  <h1>Angular Reading List of Awesome</h1>
+  <div
+      class="row"
+      ng-controller="ReadingListController as readingListCtrl">
+      <ul class="list-unstyled col-sm-8">
+        <li
+            class="book row"
+            ng-repeat="book in readingListCtrl.books">
+            <div class="col-sm-9">
+               <!-- <book-cover></book-cover> -->
+               <h3>
+                 <a href="http://www.amazon.com/gp/product/{{ book.isbn }}">
+                   {{ book.title }}
+                 </a>
+               </h3>
+               <cite class="text-muted">Written by {{ book.author }}</cite>
+               <!-- <p>{{ book.review} }</p> -->
+               <!-- <book-genres genres="book.genres"></book-genres> -->
+             </div>
+        </li>
+      </ul>
+  </div>
+
+
+  <!-- <script src="/bower_components/angular/angular.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
