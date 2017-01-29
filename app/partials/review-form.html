@@ -1,7 +1,7 @@
 <form
     name="reviewForm"
     class="form-horizontal"
-    ng-submit="reviewFormCtrl.addReview(reviewForm, reviewFormCtrl.book)">
+    ng-submit="reviewFormCtrl.addReview(reviewForm)">
 
   <section
   class="row well live-preview"
@@ -12,7 +12,7 @@
         ng-src="http://images.amazon.com/images/P/{{ reviewFormCtrl.book.isbn }}.01.ZTZZZZZZ.jpg"
         alt="Cover of {{ reviewFormCtrl.book.title }}" class="full">
       </a>
-      <p>{{ reviewFormCtrl.book.rating || '0' }}/5</p>
+      <p>{{ reviewFormCtrl.book.rating || '0' }} / 5</p>
     </aside>
 
     <div class="col-sm-9">
@@ -25,11 +25,7 @@
 
       <p>{{ reviewFormCtrl.book.review || "No review yet." }}</p>
 
-      <!-- <ul class="list-unstyled">
-        <li ng-repeat="(genre, state) in reviewFormCtrl.book.genres">
-          <span class="label label-primary" ng-show="state">{{genre}}</span>
-        </li>
-      </ul> -->
+      <book-genres genres="reviewFormCtrl.book.genres"> </book-genres>
     </div>
   </section>
 
@@ -100,12 +96,19 @@
       </span>
     </fieldset>
 
-    <!-- <fieldset class="form-group">
+    <fieldset class="form-group">
       <label class="control-label col-sm-2" >Genre:</label>
       <div class="genre">
-        <label ng-repeat="genre in genres" for="{{genre}}" class="genre-label form-control">
-          <input type="checkbox" name="genre" id="{{genre}}" ng-model="reviewFormCtrl.book.genres[genre]" />
-          {{genre}}
+        <label
+            ng-repeat="genre in genres"
+            for="{{ genre }}"
+            class="genre-label form-control">
+          <input
+              type="checkbox"
+              name="genre"
+              id="{{ genre }}"
+              ng-model="reviewFormCtrl.book.genres[genre]">
+          {{ genre }}
         </label>
       </div>
     </fieldset>
@@ -114,7 +117,7 @@
       <span class="col-sm-9 col-sm-offset-2 button-from-hell">
         <button class="btn btn-primary">Save Review</button>
       </span>
-    </fieldset> -->
+    </fieldset>
   </div>
 
 </form>

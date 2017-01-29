@@ -8,13 +8,16 @@ angular.module('readingList', [])
   this.books = books;
   this.genres = genres;
 
-  //this.showForm = false;
+  this.showForm = false;
 })
 
 .directive('bookGenres', function() {
   return {
     restrict: 'E',
     templateUrl: 'partials/book-genres.html',
+    scope: {
+      genres: '='
+    }
   }
 })
 
@@ -32,23 +35,23 @@ angular.module('readingList', [])
       templateUrl: 'partials/review-form.html',
       replace: true,
       controller: function() {
+        // directive has own ctrl
+
         this.showForm = false;
+
+        this.book = { genres: {} };
+
+        this.addReview = function(form) {
+          books.push(this.book);
+          this.book = { genres: {} };
+          form.$setPristine(); // the state of validaty is return back
+        }
+      },
+      controllerAs: 'reviewFormCtrl',
+      scope: {
+        books: '=', // isolated scope
+        genres: '=' // allows pass in genres in books
       }
-      controllerAs: 'reviewFormCtrl'
-      // controller: function(){
-      //   this.book = {genres:{}};
-      //
-      //   this.addReview = function(form){
-      //     books.push(this.book);
-      //     this.book = {genres:{}};
-      //     form.$setPristine();
-      //   }
-      // },
-      // controllerAs: 'reviewFormCtrl',
-      // scope: {
-      //   books: '=',
-      //   genres: '='
-      // }
     }
   });
 
