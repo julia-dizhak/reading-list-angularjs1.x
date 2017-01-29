@@ -17,15 +17,14 @@ h1 {
   width: 70%;
 }
 
-li.book > aside p.rating {
-  color: #7A292A;
-  font-size: 1.2em;
-}
-
 .rating {
   margin: 0;
   padding: 0 1em;
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
 }
+
 .book .rating.goodRating {
   color: #499130;
 }
@@ -56,16 +55,21 @@ li.book > aside p.rating {
   width: 100%;
 }
 
-.live-preview > aside p, li.book .rating {
+.live-preview > aside p,
+li.book .rating {
   margin: 0 5%;
   padding: 0.1em;
   background-color: #fff;
   border: 1px solid #e3e3e3;
   border-radius: 0 0 0.5em 0.5em;
   border-top-width: 0;
-  color: #888;
+  /*color: #888;*/
   font-size: 0.8em;
   text-align: center;
+}
+
+li.book .rating {
+  color: red;
 }
 
 .live-preview > aside + div > h3, li.book > aside + div > h3 {
