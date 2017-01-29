@@ -30,6 +30,10 @@
 
 /*ADDED IN*/
 
+h1 {
+  font-size: 22px;
+  margin: 0 0 10px 0;
+}
 .btn:focus {
   outline: none;
 }
@@ -47,10 +51,13 @@ li.book > aside p.rating {
   color: #499130;
 }
 
-book-cover {
+.book-cover {
   text-align: center;
   width: 100%;
   display: inline-block;
+}
+.book-cover img {
+  display: block;
 }
 
 .live-preview {
