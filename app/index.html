@@ -27,22 +27,7 @@
               ng-repeat="book in readingListCtrl.books">
               <div class="col-sm-9">
 
-                 <!-- <book-cover></book-cover> -->
-                 <aside class="col-sm-3">
-                   <a
-                   class="book-cover"
-                   href="http://www.amazon.com/gp/product/{{ book.isbn }}">
-                     <img
-                     ng-src="http://images.amazon.com/images/P/{{ book.isbn }}.01.ZTZZZZZZ.jpg"
-                     alt="Cover of {{ book.title }}"
-                     class="full">
-                   </a>
-                   <p
-                   ng-class="{goodRating: book.rating >= 3}"
-                   class="rating">
-                   {{ book.rating }}/5
-                   </p>
-                 </aside>
+                 <book-cover></book-cover>
 
                  <h3>
                    <a href="http://www.amazon.com/gp/product/{{ book.isbn }}">
@@ -54,19 +39,7 @@
 
                  <p>{{ book.review }}</p>
 
-                 <ul class="list-unstyled">
-                   <li class="genre">
-                     <span
-                         class="genre-label label label-primary"
-                         ng-repeat="(genre, state) in book.genres"
-                         ng-show="state === true">
-                         {{ genre }}
-                       </span>
-                   </li>
-                 </ul>
-
-
-                 <!-- <book-genres genres="book.genres"></book-genres> -->
+                 <book-genres></book-genres>
                </div>
           </li>
         </ul>

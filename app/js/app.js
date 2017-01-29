@@ -1,4 +1,4 @@
-(function(){
+(function() {
   'use strict';
 
 // Declare app level module which depends on views, and components
@@ -7,8 +7,26 @@ angular.module('readingList', [])
 .controller('ReadingListController', function() {
   this.books = books;
   this.genres = genres;
+
   this.showForm = false;
+})
+
+.directive('bookGenres', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'partials/book-genres.html',
+  }
+})
+
+.directive('bookCover', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'partials/book-cover.html',
+    replace: true
+  }
 });
+
+
 
 
 var genres = [
