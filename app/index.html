@@ -18,9 +18,22 @@
 <body ng-app="readingList">
   <div class="container">
     <h1>Angular Reading List of Awesome</h1>
+
     <div
         class="row"
         ng-controller="ReadingListController as readingListCtrl">
+
+        <button
+          class="btn btn-default"
+          name="button"
+          ng-click="reviewFormCtrl.showForm = !reviewFormCtrl.showForm">
+          {{ reviewFormCtrl.showForm ? "Cancel" : "Create a Review" }}
+        </button>
+
+        <hr>
+        <review-form ng-show="reviewFormCtrl.showForm"></review-form>
+        <hr>
+
         <ul class="list-unstyled col-sm-8">
           <li
               class="book row"

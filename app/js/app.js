@@ -8,7 +8,7 @@ angular.module('readingList', [])
   this.books = books;
   this.genres = genres;
 
-  this.showForm = false;
+  //this.showForm = false;
 })
 
 .directive('bookGenres', function() {
@@ -24,7 +24,33 @@ angular.module('readingList', [])
     templateUrl: 'partials/book-cover.html',
     replace: true
   }
-});
+})
+
+.directive('reviewForm', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'partials/review-form.html',
+      replace: true,
+      controller: function() {
+        this.showForm = false;
+      }
+      controllerAs: 'reviewFormCtrl'
+      // controller: function(){
+      //   this.book = {genres:{}};
+      //
+      //   this.addReview = function(form){
+      //     books.push(this.book);
+      //     this.book = {genres:{}};
+      //     form.$setPristine();
+      //   }
+      // },
+      // controllerAs: 'reviewFormCtrl',
+      // scope: {
+      //   books: '=',
+      //   genres: '='
+      // }
+    }
+  });
 
 
 
