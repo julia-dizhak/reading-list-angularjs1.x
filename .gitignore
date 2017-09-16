@@ -1,2 +1,4 @@
-*app/.DS_Store
-*app/.DS_Store?
+*.git
+.DS_Store
+.idea/*
+*.idea/

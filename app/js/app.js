@@ -54,10 +54,7 @@ angular.module('readingList', [])
       }
     }
   });
-
-
-
-
+    
 var genres = [
   'fable',
   'fantasy',
